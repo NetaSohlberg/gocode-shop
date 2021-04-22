@@ -1,7 +1,8 @@
 import './App.css';
 import Header from './componets/Header.js';
 import Products from './componets/Products';
-import Toggle from './componets/Toggle';
+import {useState} from "react";
+// import Toggle from './componets/Toggle';
 
 function App() {
   // 20210415112737
@@ -167,15 +168,22 @@ function App() {
       "description": "95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
       "category": "women clothing",
       "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
-    }
+    },
   ]
 
+  const groupBy = (xs, key) => xs.reduce((rv, x) => {
+    (rv[x[key]] = true || []);
+    return rv;
+  }, {});
+
+  const categories = Object.keys(groupBy(productsLi, 'category'));
+  const[filter,setFilter]=useState('all');
+  console.log('app',filter);
   return (
     <div>
-      <div><Header/></div>
-      
+      <div><Header categories={categories} filter={filter} setFilter={setFilter}/></div>
       <div>
-    < Products Pro={productsLi}/>
+    < Products products={productsLi} filter= {filter} />
     </div>
     </div>
     // <div>
