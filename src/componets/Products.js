@@ -1,6 +1,6 @@
 import ProductCard from "./ProductCard.js";
 import './Products.css';
-function Products({products,filter}){
+function Products({products ,addToList}){
     return(
         <section class="products">
             {products.map(product=>
@@ -11,7 +11,7 @@ function Products({products,filter}){
                 description={product.description}
                 category={product.category}
                 image={product.image}
-                filter={filter}
+                addToList={addToList}
                 />
                 )}
         </section>
