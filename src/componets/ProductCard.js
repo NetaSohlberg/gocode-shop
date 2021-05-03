@@ -1,7 +1,7 @@
 import './ProductCard.css';
-function ProductCard({key,title,price,description,category,image,filter}){
-if(filter==='all' || category===filter)
-{
+function ProductCard({key,title,price,description,category,image,addToList}){
+// const key={key};
+// const category={category};
   return(
 <div className="product-card">
       <div className="product-image">
@@ -15,11 +15,11 @@ if(filter==='all' || category===filter)
            <h5>{title}</h5>
            <h6>${price}</h6>
        </div>
+       <div>
+         <button className='add-button' onClick={()=>addToList(title)}>add to cart</button>
+       </div>
     </div>
-  );}
-  else{
-    return false;
-  }
+  );
 }
     
 export default ProductCard;

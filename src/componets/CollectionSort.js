@@ -1,5 +1,5 @@
 import './CollectionSort.css';
-import {useState} from 'react';
+// import {useState} from 'react';
 
 function CollectionSort({categories ,filter, setFilter})
 {
