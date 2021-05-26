@@ -1,16 +1,54 @@
-import './Header.css';
-import './CollectionSort';
-import CollectionSort from './CollectionSort';
-<link rel="stylesheet" href="style.css"/>
+import "./Header.css";
+import "./CollectionSort";
+import CollectionSort from "./CollectionSort";
+import Slider from "@material-ui/core/Slider";
+import Grid from "@material-ui/core/Grid";
+import { useContext, useState } from "react";
+import ThemeContext from "../ThemeContext";
+<link rel="stylesheet" href="style.css" />;
 
-function Header({categories,filter,setFilter}){
-    return (
-    <nav className="product-filter">
-      <h1>Jackets</h1>
+function Header({ categories, filter, setFilter }) {
+  const { value, setValue, min, setMin, max, setMax } =
+    useContext(ThemeContext);
+  function valuetext(value) {
+    return { value };
+  }
 
-      <div className="sort">
-        <CollectionSort categories={categories} filter={filter} setFilter={setFilter}/>
-        <div className="collection-sort">
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    console.log(value[0]);
+  };
+
+  return (
+    <>
+      <Grid container spacing={4} xs={7}>
+        <Grid item xs>
+          <h1>My Shop</h1>
+        </Grid>
+      </Grid>
+      <Grid container spacing={1} justify={"space-around"} xs={7}>
+        <Grid item xs={4}>
+          <label>select price:</label>
+          <Slider
+            value={value}
+            onChange={handleChange}
+            valueLabelDisplay="auto"
+            aria-labelledby="range-slider"
+            getAriaValueText={valuetext}
+            min={min}
+            max={max}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
+          <CollectionSort
+            categories={categories}
+            filter={filter}
+            setFilter={setFilter}
+          />
+        </Grid>
+
+        <Grid item xs={3}>
           <label>Sort by:</label>
           <select>
             <option value="/">Featured</option>
@@ -22,11 +60,10 @@ function Header({categories,filter,setFilter}){
             <option value="/">Date, new to old</option>
             <option value="/">Date, old to new</option>
           </select>
-        </div>
-      </div>
-    </nav>
-
-    );
+        </Grid>
+      </Grid>
+    </>
+  );
 }
 
 export default Header;

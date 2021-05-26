@@ -7,6 +7,8 @@
 .collection-sort {
   display: flex;
   flex-direction: column;
+  /* vertical-align: right;
+  float: right; */
 }
 
 .collection-sort:first-child {
@@ -16,4 +18,25 @@
 .sort {
   display: flex;
   align-self: flex-end;
+}
+
+.slider {
+  /* vertical-align: left;
+  display: flex;
+  /* align-self: flex-end; */
+  /* padding-right: 20px;
+  margin: 200px;
+  padding: 0; */
+  /* border: 0; */
+  /* outline: 0;
+  /* font-size: 100%; */
+  font: inherit;
+  /* margin: 20px; */
+  /* border-radius: 20px;
+  border-color: crimson; */
+  /* vertical-align: baseline; */
+}
+
+.MuiSlider-rail {
+  width: 50px;
 }
