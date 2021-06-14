@@ -196,5 +196,5 @@ mongoose
 
     // const port = process.env.PORT;
     // console.log(port);
-    app.listen(3000);
+    app.listen(server.env.PORT);
   });
