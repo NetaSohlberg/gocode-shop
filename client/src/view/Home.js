@@ -27,7 +27,8 @@ function Home() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://fakestoreapi.com/products")
+    // fetch("https://fakestoreapi.com/products")
+    fetch("https://gocode-shop-project.herokuapp.com/api/products")
       .then((response) => response.json())
       .then((data) => setProducts(data), setLoading(false));
   }, []);
@@ -63,6 +64,7 @@ function Home() {
         <Loading />
       ) : (
         <>
+          <button>admin</button>
           <div>
             <Header
               categories={categories}

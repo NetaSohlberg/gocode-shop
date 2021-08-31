@@ -28,7 +28,7 @@ function Header({ categories, filter, setFilter }) {
       </Grid>
       <Grid container spacing={1} justify={"space-around"} xs={7}>
         <Grid item xs={4}>
-          <label>select price:</label>
+          <label>select price</label>
           <Slider
             value={value}
             onChange={handleChange}

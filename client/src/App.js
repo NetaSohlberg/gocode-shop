@@ -8,6 +8,7 @@ import ThemeContext from "./ThemeContext";
 import { Link, Route, Switch, withRouter } from "react-router-dom";
 import Home from "./view/Home";
 import ProductPage from "./view/ProductPage";
+import Admin from "./view/Admin";
 import Grid from "@material-ui/core/Grid";
 
 function App() {
@@ -72,14 +73,20 @@ function App() {
 
           <nav>
             <ul>
+            <li>
+                <Link to="/Admin">Admin</Link>
+              </li>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">Home!</Link>
               </li>
             </ul>
           </nav>
         </>
 
         <Switch>
+          <Route path="/Admin">
+            <Admin/>
+          </Route>
           <Route path="/ProductPage/:key">
             <ProductPage />
           </Route>
